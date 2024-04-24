@@ -10,6 +10,7 @@
     "build": "tsup"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@rocketseat/eslint-config": "^2.2.2",
     "@types/node": "^20.12.7",
     "npm-check-updates": "^16.14.18",
