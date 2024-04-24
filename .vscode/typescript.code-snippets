@@ -1,0 +1,11 @@
+{
+  "class-implements-interface": {
+    "prefix": ";ci",
+    "body": [
+      "",
+      "export class $1 implements $2 {",
+      "}"
+    ],
+    "description": "Use Case Error snippet"
+  },
+}
