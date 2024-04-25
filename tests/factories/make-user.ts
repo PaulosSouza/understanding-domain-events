@@ -1,5 +1,6 @@
-import { IUserProps, User } from '@/domain/entities/user'
-import { faker } from '@faker-js/faker/locale/pt_BR'
+import { faker } from "@faker-js/faker/locale/pt_BR";
+
+import { IUserProps, User } from "@/domain/entities/user";
 
 export function makeUser(override: Partial<IUserProps> = {}, id?: string) {
   const user = User.create(
@@ -9,7 +10,7 @@ export function makeUser(override: Partial<IUserProps> = {}, id?: string) {
       ...override,
     },
     id,
-  )
+  );
 
-  return user
+  return user;
 }

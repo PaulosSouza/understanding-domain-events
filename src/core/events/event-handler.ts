@@ -1,3 +1,3 @@
-export interface IEventHandler {
+export interface EventHandler {
   setupSubscriptions(): void;
 }

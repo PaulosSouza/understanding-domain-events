@@ -1,4 +1,4 @@
-export interface IDomainEvent<T> {
+export interface DomainEvent<T> {
   occuredAt: Date;
   eventData: T;
 }

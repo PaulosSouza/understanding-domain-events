@@ -1,18 +1,19 @@
-import { DomainEvents } from '@/core/events/domain-events'
-import { IEventHandler } from '@/core/events/event-handler'
-import { UserCreatedEvent } from '../events/user-created-event'
-import { IUsersRepository } from '../repositories/users-repository'
+import { UserCreatedEvent } from "../events/user-created-event";
+import { IUsersRepository } from "../repositories/users-repository";
 
-export class OnUserCreated implements IEventHandler {
+import { DomainEvents } from "@/core/events/domain-events";
+import { EventHandler } from "@/core/events/event-handler";
+
+export class OnUserCreated implements EventHandler {
   constructor(private readonly usersRepository: IUsersRepository) {
-    this.setupSubscriptions()
+    this.setupSubscriptions();
   }
 
   setupSubscriptions(): void {
-    DomainEvents.register(UserCreatedEvent.name, this.handler.bind(this))
+    DomainEvents.register(UserCreatedEvent.name, this.handler.bind(this));
   }
 
   async handler({ eventData: { user } }: UserCreatedEvent) {
-    await this.usersRepository.create(user)
+    await this.usersRepository.create(user);
   }
 }
