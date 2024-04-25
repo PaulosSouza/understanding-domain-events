@@ -1,7 +1,16 @@
 {
-  "extends": ["@rocketseat/eslint-config/node"],
+  "extends": [
+    "plugin:@shopify/typescript",
+    "plugin:@shopify/typescript-type-checking",
+    "plugin:@shopify/prettier"
+  ],
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
   "rules": {
+    "@typescript-eslint/no-extraneous-class": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "no-new": "off"
+    "no-new": "off",
+    "@typescript-eslint/require-await": "off"
   }
-}
+ }

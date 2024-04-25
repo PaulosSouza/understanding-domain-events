@@ -11,8 +11,9 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
-    "@rocketseat/eslint-config": "^2.2.2",
+    "@shopify/eslint-plugin": "^44.0.0",
     "@types/node": "^20.12.7",
+    "eslint": "^8.57.0",
     "npm-check-updates": "^16.14.18",
     "tsup": "^8.0.2",
     "tsx": "^4.7.2",
