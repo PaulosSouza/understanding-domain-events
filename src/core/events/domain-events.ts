@@ -1,17 +1,24 @@
-import { DomainEvent } from "./domain-event";
-
-type DomainEventCallback<T> = (event: DomainEvent<T>) => Promise<void>;
+import { EventHandler } from "./event-handler";
+import { EventInterface } from "./event-interface";
 
 export class DomainEvents {
-  private static eventHandlers: Record<string, DomainEventCallback<any>[]> = {};
+  public static shouldRun = true;
 
-  public static getEventHandlers(): Record<string, DomainEventCallback<any>[]> {
+  private static eventHandlers: Record<
+    string,
+    EventHandler<EventInterface<unknown>>[]
+  > = {};
+
+  public static getEventHandlers(): Record<
+    string,
+    EventHandler<EventInterface<unknown>>[]
+  > {
     return DomainEvents.eventHandlers;
   }
 
-  public static register<T>(
+  public static register(
     eventName: string,
-    callback: DomainEventCallback<T>,
+    callback: EventHandler<EventInterface<unknown>>,
   ) {
     const wasEventRegisteredBefore = eventName in DomainEvents.eventHandlers;
 
@@ -22,10 +29,14 @@ export class DomainEvents {
     DomainEvents.eventHandlers[eventName].push(callback);
   }
 
-  public static notify<T>(event: DomainEvent<T>) {
+  public static notify(event: EventInterface<unknown>) {
     const eventName: string = event.constructor.name;
 
     const isEventRegistered = eventName in DomainEvents.eventHandlers;
+
+    if (!DomainEvents.shouldRun) {
+      return;
+    }
 
     if (!isEventRegistered) {
       throw new Error("Event was not registered before");
@@ -34,7 +45,7 @@ export class DomainEvents {
     const handlers = DomainEvents.eventHandlers[eventName];
 
     for (const handler of handlers) {
-      handler(event);
+      handler.handler(event);
     }
   }
 

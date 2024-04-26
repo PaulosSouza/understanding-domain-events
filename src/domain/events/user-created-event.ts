@@ -1,16 +1,17 @@
-import { IDomainEvent } from '@/core/events/domain-event'
-import { User } from '../entities/user'
+import { User } from "../entities/user";
 
-export interface IUserCreatedEvent {
-  user: User
+import { EventInterface } from "@/core/events/event-interface";
+
+interface UserCreatedEventProps {
+  user: User;
 }
 
-export class UserCreatedEvent implements IDomainEvent<IUserCreatedEvent> {
-  public occuredAt: Date
-  public eventData: IUserCreatedEvent
+export class UserCreatedEvent implements EventInterface<UserCreatedEventProps> {
+  public occuredAt: Date;
+  public eventData: UserCreatedEventProps;
 
-  constructor(eventData: IUserCreatedEvent) {
-    this.eventData = eventData
-    this.occuredAt = new Date()
+  constructor(user: User) {
+    this.occuredAt = new Date();
+    this.eventData = { user };
   }
 }

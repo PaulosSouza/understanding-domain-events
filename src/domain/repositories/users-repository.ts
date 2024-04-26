@@ -1,5 +1,6 @@
-import { User } from '../entities/user'
+import { User } from "../entities/user";
 
-export interface IUsersRepository {
-  create(user: User): Promise<void>
+export interface UsersRepository {
+  create(user: User): Promise<void>;
+  save(user: User): Promise<void>;
 }

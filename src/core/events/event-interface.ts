@@ -1,4 +1,4 @@
-export interface DomainEvent<T> {
+export interface EventInterface<T> {
   occuredAt: Date;
   eventData: T;
 }
