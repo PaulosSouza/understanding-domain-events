@@ -22,7 +22,12 @@ Notice that I demonstrated another event, SendWelcomeWhatsAppMessage, which can 
 I will demonstrate the practical implementation of this example I just showed. Pay attention to the DomainEvents class as it will be responsible for generating the firing and "listening" of existing events.
 
 ### Running the code...
-To do so, simply type this command in your terminal:
+To do so, first of all type this in your terminal:
+```bash
+npm install
+```
+
+And then run the tests:
 ```bash
 npm run test
 ```

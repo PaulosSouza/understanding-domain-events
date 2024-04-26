@@ -21,7 +21,12 @@ Perceba que eu demonstrei mais um evento, o ***EnviarMensagemWhatsAppDeBoasVinda
 Irei demonstrar na prática a implementação desse exemplo que acabei de demonstrar, sugiro que se atente na classe de **DomainEvents** pois a mesma será a responsável por gerar o disparo e "escuta" dos eventos existentes.
 
 ### Rodando o código...
-Para tal basta digitar este comando no seu terminal:
+Para tal, primeiro rode este comando:
+```bash
+npm install
+```
+
+E depois rode os testes:
 ```bash
 npm run test
 ```
