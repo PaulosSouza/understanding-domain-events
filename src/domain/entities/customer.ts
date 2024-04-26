@@ -1,13 +1,13 @@
 import { Entity } from "@/core/entities/entity";
 import { Optional } from "@/core/types/optional";
 
-export interface UserProps {
+export interface CustomerProps {
   name: string;
   email: string;
   emailAlreadySent: boolean;
 }
 
-export class User extends Entity<UserProps> {
+export class Customer extends Entity<CustomerProps> {
   get name() {
     return this.props.name;
   }
@@ -20,8 +20,11 @@ export class User extends Entity<UserProps> {
     return this.props.emailAlreadySent;
   }
 
-  static create(props: Optional<UserProps, "emailAlreadySent">, id?: string) {
-    const user = new User(
+  static create(
+    props: Optional<CustomerProps, "emailAlreadySent">,
+    id?: string,
+  ) {
+    const customer = new Customer(
       {
         ...props,
         emailAlreadySent: props.emailAlreadySent ?? false,
@@ -29,7 +32,7 @@ export class User extends Entity<UserProps> {
       id,
     );
 
-    return user;
+    return customer;
   }
 
   markEmailAsAlreadySent() {
