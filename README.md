@@ -1,27 +1,28 @@
-# Entendendo Eventos de Domínio (Domain Events)
+# Understanding Domain Events
 
-## Disclaimer
-> Recomendo antes de estar lendo sobre esse conteúdo de Domain Driven Design, para compreender melhor do que estou abordando.
-> Deixarei o [link](https://www.youtube.com/watch?v=vFZkOyaPK4E) para compreensão sobre o assunto.
+> I recommend reading about Domain Driven Design before diving into this content to better understand what I'm addressing. I'll leave the link for understanding the subject.
 
-### O que raios é isso?
-De uma forma bem breve, eventos de domínio são consequências de uma ação que aconteceu no passado dentro de um domínio.
+Check in [portuguese](.github/docs/pt-br.md) if you prefer.
 
-### Tá, não entendi...
-Um exemplo bem simples que posso citar é: Um cliente acabou de se cadastrar em um e-commerce, logo como consequência dessa ação (o ato de se cadastrar), irá receber um e-mail de boas-vindas.
-O "receber um e-mail de boas-vindas" é um evento que podemos chamar de ***EnviarEmailBoasVindasParaNovosClientes*** que partiu do domínio de ***Cliente***.
+### What on earth is this?
+Briefly, domain events are consequences of an action that occurred in the past within a domain.
 
-### E se desenhar?
-Mas claro que posso, veja na imagem a representação visual do exemplo acima:
+### Okay, I don't get it...
+A very simple example is: A customer just registered on an e-commerce website, so as a consequence of this action (the act of registering), they will receive a welcome email.
+The "receive a welcome email" is an event that we can call SendWelcomeEmailToNewCustomers originating from the Customer domain.
 
-<img src=".github/assets/domain-events-example.png" alt="Evento de Domínio"/>
+### Can you draw it?
+Of course, take a look at the visual representation of the example above:
 
-Perceba que eu demonstrei mais um evento, o ***EnviarMensagemWhatsAppDeBoasVindas*** que também pode ser uma consequência da ação de se fazer um cadastro.
+<img src=".github/assets/domain-events-example-en.png" alt="Domain Event"/>
 
-Irei demonstrar na prática a implementação desse exemplo que acabei de demonstrar, sugiro que se atente na classe de **DomainEvents** pois a mesma será a responsável por gerar o disparo e "escuta" dos eventos existentes.
+Notice that I demonstrated another event, SendWelcomeWhatsAppMessage, which can also be a consequence of registering on the e-commerce website.
 
-### Rodando o código...
-Para tal basta digitar este comando no seu terminal:
+### Okay, what now?
+I will demonstrate the practical implementation of this example I just showed. Pay attention to the DomainEvents class as it will be responsible for generating the firing and "listening" of existing events.
+
+### Running the code...
+To do so, simply type this command in your terminal:
 ```bash
 npm run test
 ```
